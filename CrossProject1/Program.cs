@@ -7,36 +7,40 @@ using static System.Console;
 
 namespace CrossProject
 {
-    // Стек очереди
+    // Функции и методы C#
 
+    /*    
+          модификаторы тип_возвращаемого_значения название_метода(параметры)
+          {
+                тело метода
+          }
+    */
     class Program
     {
+        static int Sum(int value_1, int value_2)
+        {
+            return value_1 + value_2;
+        }
+
+        static void PrintResult(int result)
+        {
+            WriteLine($"Результат сложения {result}");
+        }
+
         static void Main(string[] args)
         {
-            Queue queue = new Queue();
-            queue.Push("Valera");
-            queue.Push("Tolya");
-            queue.Push("Steve");
-            WriteLine($"Следующий идет : {queue.Pop()}");
-        }
-    }
-    class Queue
-    {
-        string[] queue = new string[10];
-        int start = 0;
-        int end = 0;
-        public void Push(string name) // 1-й атрибут доступа, 2-й тип возвращемого объекта, 3-й имя метода, 4-й параметры
-        {
-            queue[end] = name;
-            end++;
-        }
-        public string Pop() 
-        {
-            // Pop();
-            string name = queue[start];
-            queue[start] = null;
-            start++;
-            return name;
+            int a, b, c;
+
+            a = int.Parse(ReadLine());
+            b = int.Parse(ReadLine());
+
+            c = Sum(a, b);
+            
+            PrintResult(c);
+            WriteLine($"Результат сложения : {c}");
+            WriteLine("--------------");
+
+            // тест
         }
     }
 }
